@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Location de voiture simple et rapide - Découvrez nos modèles disponibles et réservez en ligne."
+    />
+    <meta
+      name="keywords"
+      content="location de voiture, voitures disponibles, location facile"
+    />
+    <meta
+      property="og:title"
+      content="Car Rental - Location de voitures rapide et simple"
+    />
+    <meta
+      property="og:description"
+      content="Explorez notre gamme de voitures et réservez en ligne."
+    />
+    <meta property="og:image" content="IMG/voiture.jpg" />
+    <title>Car Rental Website</title>
+
+    <!-- Apple Touch Icon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- jQuery Library (needed for slick) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"
+    ></script>
+
+    <!-- Slick Carousel Library -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"
+    />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preload" href="IMG/voiture.jpg" as="image" />
+    <!-- Image preload -->
+    <link rel="manifest" href="manifest.json" />
+    <!-- PWA manifest -->
+  </head>
+  <body>
+    <!-- Progress Bar -->
+    <div id="progress-bar"></div>
+
+    <!-- Navbar -->
+    <header>
+      <div class="nav container">
+        <!-- Mobile menu icon -->
+        <i
+          class="bx bx-menu"
+          id="menu-icon"
+          aria-label="Toggle navigation menu"
+        ></i>
+
+        <!-- Logo section -->
+        <a href="#home" class="logo">
+          Car<span class="logo-highlight">Rental</span>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul class="navbar">
+          <li>
+            <a href="#home" class="active" aria-label="Go to homepage">Home</a>
+          </li>
+          <li><a href="#cars" aria-label="View available cars">Our Cars</a></li>
+          <li>
+            <a href="#about" aria-label="Learn how it works">How It Works</a>
+          </li>
+          <li><a href="#contact" aria-label="Contact us">Contact Us</a></li>
+        </ul>
+
+        <!-- Search icon and search box -->
+        <i class="bx bx-search" id="search-icon" aria-label="Open search"></i>
+        <div class="search-box container">
+          <input
+            type="search"
+            placeholder="Search here..."
+            aria-label="Search for cars or information"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- Home -->
+    <main>
+      <section class="home" id="home">
+        <div class="home-overlay"></div>
+        <div class="home-text">
+          <h1>Find Your Perfect <br />Car for Rental</h1>
+          <p>
+            Explore our wide range of rental cars and find the perfect fit for
+            your needs. Convenient, affordable, and fast.
+          </p>
+          <a href="#cars" class="btn" aria-label="Explore available cars"
+            >Explore Our Cars</a
+          >
+        </div>
+      </section>
+
+      <!-- Filter Section -->
+      <section class="filter-section">
+        <div class="filter-container">
+          <button
+            class="filter-btn active"
+            data-filter="all"
+            aria-label="Show all cars"
+          >
+            All Cars
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="SUV"
+            aria-label="Show only SUVs"
+          >
+            SUV
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="Sedan"
+            aria-label="Show only Sedans"
+          >
+            Sedan
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="Luxury"
+            aria-label="Show only Luxury cars"
+          >
+            Luxury
+          </button>
+        </div>
+      </section>
+
+      <!-- Cars Section -->
+      <section class="cars" id="cars">
+        <div class="container">
+          <h2>Our Available Cars</h2>
+          <div class="car-list">
+            <!-- First Car: Hyundai -->
+            <div class="car-item" data-category="Sedan">
+              <span class="badge">New</span>
+              <picture>
+                <source srcset="IMG_V/Hyundai.webp" type="image/webp" />
+                <source srcset="IMG_V/Hyundai.jpg" type="image/jpeg" />
+                <img src="IMG_V/Hyundai.jpg" alt="Hyundai" loading="lazy" />
+              </picture>
+              <h3>Hyundai</h3>
+              <p>
+                Elegant design, fuel-efficient, and perfect for city
+                <br />drives.
+              </p>
+              <p class="details">Transmission: Automatic | Fuel: Petrol</p>
+              <button
+                class="btn rent-now-btn"
+                aria-label="Rent this Hyundai"
+                onclick="openRentModal('Hyundai')"
+              >
+                Rent Now
+              </button>
+              <button
+                class="btn more-details-btn"
+                aria-label="View more details about Hyundai"
+                onclick="openModal('Hyundai')"
+              >
+                More Details
+              </button>
+            </div>
+
+            <!-- Second Car: Jaguar -->
+            <div class="car-item" data-category="Luxury">
+              <span class="badge">Luxury</span>
+              <picture>
+                <source srcset="IMG_V/Jaguar.webp" type="image/webp" />
+                <source srcset="IMG_V/Jaguar.jpg" type="image/jpeg" />
+                <img src="IMG_V/Jaguar.jpg" alt="Jaguar" loading="lazy" />
+              </picture>
+              <h3>Jaguar</h3>
+              <p>Luxury and performance combined, perfect for any occasion.</p>
+              <p class="details">Transmission: Automatic | Fuel: Diesel</p>
+              <button
+                class="btn rent-now-btn"
+                aria-label="Rent this Jaguar"
+                onclick="openRentModal('Jaguar')"
+              >
+                Rent Now
+              </button>
+              <button
+                class="btn more-details-btn"
+                aria-label="View more details about Jaguar"
+                onclick="openModal('Jaguar')"
+              >
+                More Details
+              </button>
+            </div>
+
+            <!-- Third Car: Ford Mustang -->
+            <div class="car-item" data-category="Sport">
+              <span class="badge">Popular</span>
+              <picture>
+                <source srcset="IMG_V/Mustang.webp" type="image/webp" />
+                <source srcset="IMG_V/Mustang.jpg" type="image/jpeg" />
+                <img
+                  src="IMG_V/Mustang.jpg"
+                  alt="Ford Mustang"
+                  loading="lazy"
+                />
+              </picture>
+              <h3>Ford Mustang</h3>
+              <p>
+                Bold and powerful, the Mustang is perfect for those who want to
+                make a statement.
+              </p>
+              <p class="details">Transmission: Manual | Fuel: Petrol</p>
+              <button
+                class="btn rent-now-btn"
+                aria-label="Rent this Mustang"
+                onclick="openRentModal('Mustang')"
+              >
+                Rent Now
+              </button>
+              <button
+                class="btn more-details-btn"
+                aria-label="View more details about Ford Mustang"
+                onclick="openModal('Mustang')"
+              >
+                More Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rent Now Modal Structure -->
+      <div id="rentModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" onclick="closeRentModal()">&times;</span>
+          <h3 id="rent-modal-title">Rent Hyundai</h3>
+          <form id="rentForm" onsubmit="sendToWhatsApp(event)">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="pickup-date">Pick-up Date</label>
+            <input type="date" id="pickup-date" name="pickup-date" required />
+
+            <label for="return-date">Return Date</label>
+            <input type="date" id="return-date" name="return-date" required />
+
+            <button type="submit" class="btn">Confirm Booking</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal Structure -->
+      <div id="carModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" onclick="closeModal()">&times;</span>
+          <h3 id="modal-title">Car Details</h3>
+          <p id="modal-description">
+            Additional details about the selected car will appear here.
+          </p>
+          <img id="modal-image" src="" alt="Car Image" />
+          <div class="modal-specs">
+            <p><strong>Transmission:</strong> Automatic</p>
+            <p><strong>Fuel:</strong> Petrol</p>
+            <p><strong>Color Options:</strong> Red, Black, White</p>
+            <p><strong>Rental Price:</strong> $50/day</p>
+          </div>
+        </div>
+      </div>
+      <!-- How It Works -->
+      <section class="about" id="about">
+        <div class="container">
+          <h2>How It Works</h2>
+          <p class="about-intro">
+            Discover how easy it is to rent a car with us. Quick, efficient, and
+            tailored to get you on the road fast.
+          </p>
+          <div class="steps">
+            <div class="step">
+              <i class="bx bx-search-alt-2"></i>
+              <h3>Choose Your Car</h3>
+              <p>
+                Browse our selection of cars to find the one that suits your
+                needs.
+              </p>
+            </div>
+            <div class="step">
+              <i class="bx bx-calendar"></i>
+              <h3>Book Online</h3>
+              <p>
+                Select your dates and book your car online in just a few clicks.
+              </p>
+            </div>
+            <div class="step">
+              <i class="bx bx-key"></i>
+              <h3>Pick Up Your Car</h3>
+              <p>Get the keys and start your journey hassle-free.</p>
+            </div>
+            <div class="step">
+              <i class="bx bx-car"></i>
+              <h3>Enjoy Your Ride</h3>
+              <p>Drive with confidence and return the car when you're done.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials" id="testimonials">
+        <div class="container">
+          <h2>Client Testimonials</h2>
+          <p class="testimonial-intro">
+            Hear what our satisfied clients have to say about their experiences
+            with us.
+          </p>
+          <div class="testimonial-list"></div>
+        </div>
+      </section>
+
+      <!-- Testimonial Box on the Right -->
+      <div class="testimonial-box" id="testimonialBox">
+        <!-- Toggle Button for Testimonial Form -->
+        <button id="openFormBtn" class="btn">Add Your Testimonial</button>
+
+        <!-- Hidden Testimonial Form -->
+        <div id="testimonialForm" class="testimonial-form">
+          <form id="testimonialSubmitForm">
+            <h3>We Value Your Feedback</h3>
+
+            <label for="nam">Your Name</label>
+            <input type="text" id="nam" name="nam" required />
+
+            <label for="testimonial">Your Testimonial</label>
+            <textarea
+              id="testimonial"
+              name="testimonial"
+              placeholder="Share your experience..."
+              required
+            ></textarea>
+
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating" required>
+              <option value="" disabled selected>Select a rating</option>
+              <option value="5">⭐️⭐️⭐️⭐️⭐️ - Excellent</option>
+              <option value="4">⭐️⭐️⭐️⭐️ - Very Good</option>
+              <option value="3">⭐️⭐️⭐️ - Good</option>
+              <option value="2">⭐️⭐️ - Fair</option>
+              <option value="1">⭐️ - Poor</option>
+            </select>
+
+            <button type="submit" class="btn">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <section class="contact" id="contact">
+        <div class="container">
+          <h2>Contact Us</h2>
+          <form id="contactForm" aria-label="Contact form">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              aria-label="Your Name"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              required
+              aria-label="Your Message"
+            ></textarea>
+            <button type="submit" class="btn" aria-label="Send Message">
+              Send Message
+            </button>
+          </form>
+          <p id="form-message" class="success-message"></p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <a href="#home" class="logo">
+              Car<span class="logo-highlight">Rental</span>
+            </a>
+            <p>&copy; 2024 Car Rental. All rights reserved.</p>
+          </div>
+
+          <ul class="footer-links">
+            <li><a href="#home" aria-label="Back to homepage">Home</a></li>
+            <li>
+              <a href="#cars" aria-label="View available cars">Our Cars</a>
+            </li>
+            <li>
+              <a href="#about" aria-label="Learn how it works">How It Works</a>
+            </li>
+            <li><a href="#contact" aria-label="Contact us">Contact Us</a></li>
+          </ul>
+
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook" class="social-icon"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="#" aria-label="Instagram" class="social-icon"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="#" aria-label="Twitter" class="social-icon"
+              ><i class="bx bxl-twitter"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn" class="social-icon"
+              ><i class="bx bxl-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
