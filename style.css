@@ -868,12 +868,6 @@ header {
     cursor: pointer;
 }
 
-/* Footer */
-footer {
-    background-color: #f8f8f8;
-    padding: 1rem 0;
-    text-align: center;
-}
 
 /* Progress Bar */
 #progress-bar {
@@ -888,10 +882,11 @@ footer {
 
 
 footer {
-    background-color: var(--text-color); /* Couleur de fond sombre */
+    background-color: #000;
     padding: 2rem 0;
     color: #fff;
     font-size: 0.9rem;
+    text-align: center;
 }
 
 footer .container {
@@ -970,32 +965,167 @@ footer .container {
 }
 
 
-/* Responsive Design */
+/* Version mobile améliorée */
 @media (max-width: 768px) {
-    .home-text {
-        padding: 20px;
-        text-align: center;
-        max-width: 90%;
-        margin: 0 auto;
+    /* Général - Ajustements de mise en page */
+    body {
+        padding: 0 1rem;
+    }
+
+    /* Barre de navigation mobile */
+    .navbar {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    /* Section d'accueil */
+    .home {
+        height: 100vh;
+        background-position: center;
     }
 
     .home-text h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .home-text p {
         font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Section voitures */
+    .cars h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
     }
 
     .car-list {
+        display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
+        align-items: center;
     }
 
     .car-item {
-        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .car-item img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+    }
+
+    .car-item h3 {
+        font-size: 1.4rem;
+        margin: 0.5rem 0;
+    }
+
+    .car-item p {
+        font-size: 0.95rem;
+        padding: 0 1rem;
+    }
+
+    .car-item .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+        width: 90%;
+        max-width: 200px;
+        border-radius: 25px;
+        margin: 0.4rem;
+    }
+
+    /* Section À propos */
+    .about {
+        padding: 3rem 1rem;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .about-intro {
+        font-size: 1rem;
+    }
+
+    /* Témoignages */
+    .testimonials {
+        padding: 3rem 1rem;
+    }
+
+    .testimonials h2 {
+        font-size: 2rem;
+    }
+
+    .testimonial-list {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .testimonial-item {
+        max-width: 100%;
+    }
+
+    /* Formulaire de témoignage */
+    .testimonial-box {
+        width: auto;
+        transform: translateY(0) translateX(0);
+        top: auto;
+        right: auto;
+        position: relative;
+        margin: 1rem auto;
+    }
+
+    /* Formulaire de contact */
+    .contact form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .contact form input,
+    .contact form textarea {
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+
+    .contact form button {
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }
+
 
 /* About Section */
 .about {
